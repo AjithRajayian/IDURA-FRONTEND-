@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "frontend/dist"  # Change to "frontend/build" if you're using Create React App
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
