@@ -1,7 +1,14 @@
+# Netlify Build Configuration
 [build]
-  command = "npm run build"
-  publish = "build"
+  command = "npm run build"   # Command to build the project
+  publish = "dist"            # Directory to deploy (Vite outputs to 'dist')
 
+# Set Node.js version to match package.json
+[build.environment]
+  NODE_VERSION = "20.9.0"
+  NPM_VERSION = "10.2.4"
+
+# Redirect all requests to index.html for SPA (Single Page Applications like React)
 [[redirects]]
   from = "/*"
   to = "/index.html"
