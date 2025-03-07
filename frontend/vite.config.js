@@ -28,10 +28,10 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: 'dist', // Ensure this directory is clean before building
+      outDir: 'dist', // Ensure Netlify deploys from here
       emptyOutDir: true,
       rollupOptions: {
-        input: path.resolve(__dirname, 'index.html'), // Reference index.html outside src/
+        input: path.resolve(__dirname, 'index.html'), // Correct index.html path
       },
     },
   });
