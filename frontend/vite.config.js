@@ -14,7 +14,7 @@ export default ({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
+        '@': path.resolve(__dirname, 'src'), // Ensure alias works correctly
       },
     },
     server: {
@@ -27,5 +27,10 @@ export default ({ mode }) => {
         },
       },
     },
+    build: {
+      outDir: 'dist', // Ensure Netlify deploys from 'dist'
+      emptyOutDir: true, // Clears old files before build
+    },
+    publicDir: 'public', // Ensure Netlify recognizes index.html
   });
 };
