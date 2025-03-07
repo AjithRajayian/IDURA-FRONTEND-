@@ -1,4 +1,5 @@
 import path from 'path';
+
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -8,18 +9,15 @@ export default ({ mode }) => {
   const proxy_url =
     process.env.VITE_DEV_REMOTE === 'remote'
       ? process.env.VITE_BACKEND_SERVER
-      : 'https://idura-backend.onrender.com';
+      : 'https://idura-backend.onrender.com/';
 
-  return defineConfig({
+  const config = {
     plugins: [react()],
     resolve: {
+      base: '/',
       alias: {
         '@': path.resolve(__dirname, 'src'),
       },
-    },
-    build: {
-      outDir: 'dist', // ✅ Netlify serves from "dist"
-      emptyOutDir: true, // ✅ Clears old builds
     },
     server: {
       port: 3000,
@@ -31,5 +29,6 @@ export default ({ mode }) => {
         },
       },
     },
-  });
+  };
+  return defineConfig(config);
 };
