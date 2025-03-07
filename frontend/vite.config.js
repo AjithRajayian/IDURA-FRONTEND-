@@ -1,4 +1,5 @@
 import path from 'path';
+
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -10,9 +11,10 @@ export default ({ mode }) => {
       ? process.env.VITE_BACKEND_SERVER
       : 'https://idura-backend.onrender.com/';
 
-  return defineConfig({
+  const config = {
     plugins: [react()],
     resolve: {
+      base: '/',
       alias: {
         '@': path.resolve(__dirname, 'src'),
       },
@@ -27,12 +29,6 @@ export default ({ mode }) => {
         },
       },
     },
-    build: {
-      outDir: 'dist', // Ensure Netlify deploys from here
-      emptyOutDir: true,
-      rollupOptions: {
-        input: path.resolve(__dirname, 'index.html'), // Correct index.html path
-      },
-    },
-  });
+  };
+  return defineConfig(config);
 };
