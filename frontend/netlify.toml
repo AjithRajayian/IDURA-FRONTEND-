@@ -1,10 +1,21 @@
 [build]
   command = "npm run build"
-  publish = "dist"   # Ensure Netlify deploys from the 'dist' directory  
+  publish = "dist"  # Ensure Netlify deploys from the 'dist' directory
+
 [build.environment]
   NODE_VERSION = "20"
+  NPM_VERSION = "latest"  # Ensures the latest stable NPM version
+  GO_VERSION = "1.19"  # Only if Go is required; remove this line if not needed
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[functions]
+  node_bundler = "esbuild"  # Ensures Netlify functions use ESBuild for faster builds
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
