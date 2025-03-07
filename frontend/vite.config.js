@@ -28,10 +28,10 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: 'dist',
+      outDir: 'dist', // Ensure this directory is clean before building
       emptyOutDir: true,
       rollupOptions: {
-        input: path.resolve(__dirname, 'index.html'), // Direct path to index.html
+        input: path.resolve(__dirname, 'index.html'), // Reference index.html outside src/
       },
     },
   });
