@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "20.9.0"
   NPM_VERSION = "10.2.4"
-  GO_VERSION = "none"
+
 
 [[headers]]
   for = "/*"
