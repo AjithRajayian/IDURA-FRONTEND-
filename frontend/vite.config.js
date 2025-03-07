@@ -28,12 +28,10 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: 'dist', // Netlify deploys from this directory
-      emptyOutDir: true, // Clears old files before building
+      outDir: 'dist',
+      emptyOutDir: true,
       rollupOptions: {
-        input: {
-          main: path.resolve(__dirname, 'index.html'), // Ensure it points to index.html
-        },
+        input: path.resolve(__dirname, 'index.html'), // Direct path to index.html
       },
     },
   });
