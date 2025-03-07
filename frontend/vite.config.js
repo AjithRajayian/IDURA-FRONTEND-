@@ -31,7 +31,9 @@ export default ({ mode }) => {
       outDir: 'dist', // Netlify deploys from this directory
       emptyOutDir: true, // Clears old files before building
       rollupOptions: {
-        input: path.resolve(__dirname, 'index.html'), // Explicitly point to index.html in the root
+        input: {
+          main: path.resolve(__dirname, 'index.html'), // Ensure it points to index.html
+        },
       },
     },
   });
