@@ -1,6 +1,7 @@
 {
   "name": "idurar-erp-crm",
   "version": "4.1.0",
+   "homepage": "/",
   "engines": {
     "node": "20.9.0",
     "npm": "10.2.4"
